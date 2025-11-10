@@ -1,0 +1,18 @@
+[2025-11-09T22:39:02.643+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline_dag.data_pipeline.preprocess_and_split scheduled__2025-11-09T22:36:00+00:00 [queued]>
+[2025-11-09T22:39:02.647+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline_dag.data_pipeline.preprocess_and_split scheduled__2025-11-09T22:36:00+00:00 [queued]>
+[2025-11-09T22:39:02.647+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-11-09T22:39:02.652+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): data_pipeline.preprocess_and_split> on 2025-11-09 22:36:00+00:00
+[2025-11-09T22:39:02.656+0000] {standard_task_runner.py:60} INFO - Started process 562 to run task
+[2025-11-09T22:39:02.657+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ml_pipeline_dag', 'data_pipeline.preprocess_and_split', 'scheduled__2025-11-09T22:36:00+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpje_zmud4']
+[2025-11-09T22:39:02.659+0000] {standard_task_runner.py:88} INFO - Job 44: Subtask data_pipeline.preprocess_and_split
+[2025-11-09T22:39:02.667+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-09T22:39:02.683+0000] {task_command.py:423} INFO - Running <TaskInstance: ml_pipeline_dag.data_pipeline.preprocess_and_split scheduled__2025-11-09T22:36:00+00:00 [running]> on host 29c9c38bafb8
+[2025-11-09T22:39:02.719+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='juan_ruiz' AIRFLOW_CTX_DAG_ID='ml_pipeline_dag' AIRFLOW_CTX_TASK_ID='data_pipeline.preprocess_and_split' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T22:36:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-09T22:36:00+00:00'
+[2025-11-09T22:39:02.720+0000] {logging_mixin.py:188} INFO - ⚙️ Procesando archivo: /opt/airflow/data/interim/chunk_002.csv
+[2025-11-09T22:39:02.854+0000] {logging_mixin.py:188} INFO - ✅ División train/val/test completada para chunk 2
+[2025-11-09T22:39:02.855+0000] {logging_mixin.py:188} INFO - 📁 Archivos guardados en: /opt/airflow/data/processed
+[2025-11-09T22:39:02.855+0000] {logging_mixin.py:188} INFO - 🧾 Estado actualizado: último chunk procesado = 2
+[2025-11-09T22:39:02.859+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-09T22:39:02.864+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ml_pipeline_dag, task_id=data_pipeline.preprocess_and_split, execution_date=20251109T223600, start_date=20251109T223902, end_date=20251109T223902
+[2025-11-09T22:39:02.879+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-09T22:39:02.890+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

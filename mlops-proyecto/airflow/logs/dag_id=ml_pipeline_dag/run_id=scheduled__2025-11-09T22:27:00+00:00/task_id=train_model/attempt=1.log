@@ -1,0 +1,78 @@
+[2025-11-09T22:30:17.440+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline_dag.train_model scheduled__2025-11-09T22:27:00+00:00 [queued]>
+[2025-11-09T22:30:17.443+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline_dag.train_model scheduled__2025-11-09T22:27:00+00:00 [queued]>
+[2025-11-09T22:30:17.443+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-11-09T22:30:17.449+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): train_model> on 2025-11-09 22:27:00+00:00
+[2025-11-09T22:30:17.452+0000] {standard_task_runner.py:60} INFO - Started process 232 to run task
+[2025-11-09T22:30:17.454+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ml_pipeline_dag', 'train_model', 'scheduled__2025-11-09T22:27:00+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp0fgkbfzd']
+[2025-11-09T22:30:17.455+0000] {standard_task_runner.py:88} INFO - Job 28: Subtask train_model
+[2025-11-09T22:30:17.464+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-09T22:30:17.481+0000] {task_command.py:423} INFO - Running <TaskInstance: ml_pipeline_dag.train_model scheduled__2025-11-09T22:27:00+00:00 [running]> on host 29c9c38bafb8
+[2025-11-09T22:30:17.516+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='juan_ruiz' AIRFLOW_CTX_DAG_ID='ml_pipeline_dag' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T22:27:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-09T22:27:00+00:00'
+[2025-11-09T22:30:17.519+0000] {logging_mixin.py:188} INFO - 📊 Entrenando modelo incremental hasta chunk 000
+[2025-11-09T22:30:17.641+0000] {logging_mixin.py:188} INFO - ✅ Dimensiones finales:
+[2025-11-09T22:30:17.641+0000] {logging_mixin.py:188} INFO -    X_train: (36000, 51), y_train: (36000,)
+[2025-11-09T22:30:17.641+0000] {logging_mixin.py:188} INFO -    X_val:   (12000, 51),   y_val:   (12000,)
+[2025-11-09T22:30:17.641+0000] {logging_mixin.py:188} INFO -    X_test:  (12000, 51),  y_test:  (12000,)
+[2025-11-09T22:30:17.736+0000] {logging_mixin.py:188} WARNING - 2025/11/09 22:30:17 WARNING ***.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-09T22:30:23.468+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2025-11-09T22:30:23.535+0000] {logging_mixin.py:188} INFO - ✅ Modelo chunk 000 registrado en MLflow con métricas: {'accuracy': 0.6625833333333333, 'precision': 0.6336480686695279, 'recall': 0.6584017124509454, 'f1': 0.645787770098854}
+[2025-11-09T22:30:23.544+0000] {logging_mixin.py:188} INFO - 🏃 View run chunk_000 at: http://***:5000/#/experiments/1/runs/ba4dfd3f1b344eccb797d72e6085a788
+[2025-11-09T22:30:23.545+0000] {logging_mixin.py:188} INFO - 🧪 View experiment at: http://***:5000/#/experiments/1
+[2025-11-09T22:30:23.556+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-09T22:30:23.565+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ml_pipeline_dag, task_id=train_model, execution_date=20251109T222700, start_date=20251109T223017, end_date=20251109T223023
+[2025-11-09T22:30:23.625+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-09T22:30:23.636+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T22:32:19.049+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline_dag.train_model scheduled__2025-11-09T22:27:00+00:00 [queued]>
+[2025-11-09T22:32:19.053+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline_dag.train_model scheduled__2025-11-09T22:27:00+00:00 [queued]>
+[2025-11-09T22:32:19.053+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-11-09T22:32:19.058+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): train_model> on 2025-11-09 22:27:00+00:00
+[2025-11-09T22:32:19.062+0000] {standard_task_runner.py:60} INFO - Started process 217 to run task
+[2025-11-09T22:32:19.064+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ml_pipeline_dag', 'train_model', 'scheduled__2025-11-09T22:27:00+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline_dag.py', '--cfg-path', '/tmp/tmpsnx0pwmm']
+[2025-11-09T22:32:19.065+0000] {standard_task_runner.py:88} INFO - Job 32: Subtask train_model
+[2025-11-09T22:32:19.073+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-09T22:32:19.089+0000] {task_command.py:423} INFO - Running <TaskInstance: ml_pipeline_dag.train_model scheduled__2025-11-09T22:27:00+00:00 [running]> on host 29c9c38bafb8
+[2025-11-09T22:32:19.122+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='juan_ruiz' AIRFLOW_CTX_DAG_ID='ml_pipeline_dag' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T22:27:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-09T22:27:00+00:00'
+[2025-11-09T22:32:19.124+0000] {logging_mixin.py:188} INFO - 📊 Entrenando modelo incremental hasta chunk 001
+[2025-11-09T22:32:19.158+0000] {logging_mixin.py:188} INFO - ✅ Dimensiones finales:
+[2025-11-09T22:32:19.158+0000] {logging_mixin.py:188} INFO -    X_train: (9000, 51), y_train: (9000,)
+[2025-11-09T22:32:19.158+0000] {logging_mixin.py:188} INFO -    X_val:   (3000, 51),   y_val:   (3000,)
+[2025-11-09T22:32:19.158+0000] {logging_mixin.py:188} INFO -    X_test:  (3000, 51),  y_test:  (3000,)
+[2025-11-09T22:32:19.197+0000] {logging_mixin.py:188} WARNING - 2025/11/09 22:32:19 WARNING ***.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-09T22:32:21.374+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2025-11-09T22:32:21.438+0000] {logging_mixin.py:188} INFO - ✅ Modelo chunk 001 registrado en MLflow con métricas: {'accuracy': 0.6836666666666666, 'precision': 0.6074476338246703, 'recall': 0.6386623164763459, 'f1': 0.6226640159045725}
+[2025-11-09T22:32:21.450+0000] {logging_mixin.py:188} INFO - 🏃 View run chunk_001 at: http://***:5000/#/experiments/1/runs/2ecef5a2a48447a4b9fc86876cf9fa09
+[2025-11-09T22:32:21.450+0000] {logging_mixin.py:188} INFO - 🧪 View experiment at: http://***:5000/#/experiments/1
+[2025-11-09T22:32:21.457+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-09T22:32:21.463+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ml_pipeline_dag, task_id=train_model, execution_date=20251109T222700, start_date=20251109T223219, end_date=20251109T223221
+[2025-11-09T22:32:21.495+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-09T22:32:21.504+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

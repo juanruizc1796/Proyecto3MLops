@@ -1,0 +1,18 @@
+[2025-11-09T22:42:01.537+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_pipeline_dag.data_pipeline.ingest_csv_chunks scheduled__2025-11-09T22:39:00+00:00 [queued]>
+[2025-11-09T22:42:01.540+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_pipeline_dag.data_pipeline.ingest_csv_chunks scheduled__2025-11-09T22:39:00+00:00 [queued]>
+[2025-11-09T22:42:01.540+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-11-09T22:42:01.545+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): data_pipeline.ingest_csv_chunks> on 2025-11-09 22:39:00+00:00
+[2025-11-09T22:42:01.549+0000] {standard_task_runner.py:60} INFO - Started process 734 to run task
+[2025-11-09T22:42:01.551+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ml_pipeline_dag', 'data_pipeline.ingest_csv_chunks', 'scheduled__2025-11-09T22:39:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/ml_pipeline_dag.py', '--cfg-path', '/tmp/tmp_1q496qg']
+[2025-11-09T22:42:01.552+0000] {standard_task_runner.py:88} INFO - Job 46: Subtask data_pipeline.ingest_csv_chunks
+[2025-11-09T22:42:01.560+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-09T22:42:01.577+0000] {task_command.py:423} INFO - Running <TaskInstance: ml_pipeline_dag.data_pipeline.ingest_csv_chunks scheduled__2025-11-09T22:39:00+00:00 [running]> on host 29c9c38bafb8
+[2025-11-09T22:42:01.614+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='juan_ruiz' AIRFLOW_CTX_DAG_ID='ml_pipeline_dag' AIRFLOW_CTX_TASK_ID='data_pipeline.ingest_csv_chunks' AIRFLOW_CTX_EXECUTION_DATE='2025-11-09T22:39:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-09T22:39:00+00:00'
+[2025-11-09T22:42:01.646+0000] {logging_mixin.py:188} INFO - 📥 Procesando chunk 3 desde la fila 45000 (de 90000)
+[2025-11-09T22:42:01.800+0000] {logging_mixin.py:188} INFO - ✅ Guardado /opt/airflow/data/interim/chunk_003.csv con 15000 registros.
+[2025-11-09T22:42:01.803+0000] {logging_mixin.py:188} INFO - 📊 Estado actualizado: último chunk = 3
+[2025-11-09T22:42:01.804+0000] {logging_mixin.py:188} INFO - 📦 Quedan 30000 filas por procesar (2.00 chunks aprox).
+[2025-11-09T22:42:01.805+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-11-09T22:42:01.810+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ml_pipeline_dag, task_id=data_pipeline.ingest_csv_chunks, execution_date=20251109T223900, start_date=20251109T224201, end_date=20251109T224201
+[2025-11-09T22:42:01.821+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-11-09T22:42:01.833+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

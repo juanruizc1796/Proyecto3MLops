@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: mlops
+  labels:
+    app: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: api:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          env:
+            - name: MODEL_NAME
+              value: "diabetes_readmission_xgb"
+            - name: MODEL_STAGE
+              value: "Production"
+            - name: LOCAL_MODEL_PATH
+              value: "/opt/airflow/data/models/current/model.pkl"
+            - name: FORCE_LOCAL_MODEL
+              value: "true"
+          volumeMounts:
+            - name: model-volume
+              mountPath: /opt/airflow/data/models/current
+      volumes:
+        - name: model-volume
+          hostPath:
+            path: /Users/juanse/Desktop/Proyecto3MLopsGrupo1/mlops-proyecto/data/models/current
+            type: Directory
